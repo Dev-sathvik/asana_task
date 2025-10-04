@@ -5,7 +5,7 @@
 ## Programming language and tools used
 * Python  
 * VS Code
-* 
+  
 ---
 
 ## Steps to set up the environment (e.g., software, libraries, dependencies)
@@ -23,7 +23,7 @@
 
 ## Instructions to run the code
 1. Navigate to the cloned directory.
-2. Execute the following command to start the service.
+2. Execute the following command to start the service.  
     ```python get_events.py```  
 ---
 
