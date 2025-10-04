@@ -1,35 +1,41 @@
 # Auto add project name in task title
+
 ---
+
 ## Programming language and tools used
-* Python
+* Python  
 * VS Code
+* 
 ---
+
 ## Steps to set up the environment (e.g., software, libraries, dependencies)
 1. Make sure python(above version 3) and pip is installed in your system.
 2. Clone this repository.
 3. Create and activate a virtual environment by running this in powershell.  
-    `python -m venv venv`
-    `.\venv\Scripts\Activate.ps1`
-4. Install all the required packages
-    `pip install -r requirements.txt`
-5. Create a virtual environment(.env) file in top level of directory and paste the PAT in the given form.
-    `ASANA_PAT=<YOUR_TOKEN>`
+   ```python -m venv venv```  
+   ```.\venv\Scripts\Activate.ps1```  
+4. Install all the required packages  
+    ```pip install -r requirements.txt```   
+5. Create a virtual environment(.env) file in top level of directory and paste the PAT in the given form.  
+    ```ASANA_PAT=<YOUR_TOKEN>```  
 
 ---
 
 ## Instructions to run the code
 1. Navigate to the cloned directory.
 2. Execute the following command to start the service.
-    `python get_events.py`
+    ```python get_events.py```  
 ---
 
 ## Expected input/output format
 ### Input
-    * Add a new task to the project named Qscripts in the asana platform.
+   - Add a new task to the project named Qscripts in the asana platform.
 
 ### Output
    - After some seconds, the task name will be prefixed with project name.
+     
 ---
+
 ### Any special notes (e.g., limitations, known issues, or next steps)
 
 ### Limitations, known issuses
