@@ -10,7 +10,7 @@
 
 ## Steps to set up the environment (e.g., software, libraries, dependencies)
 1. Make sure python(above version 3) and pip is installed in your system.
-2. Clone this repository.
+2. Fork this repository, clone it and navigate to the directory.
 3. Create and activate a virtual environment by running this in powershell.  
    ```python -m venv venv```  
    ```.\venv\Scripts\Activate.ps1```  
