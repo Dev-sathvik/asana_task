@@ -36,7 +36,7 @@
      
 ---
 
-### Any special notes (e.g., limitations, known issues, or next steps)
+## Any special notes (e.g., limitations, known issues, or next steps)
 
 ### Limitations, known issuses
 - The system depends on how often we poll the API of asana, a large time gap improves the effectiveness of this service but takes longer to time to get updated. 
