@@ -1,33 +1,41 @@
-import asana
+
 from asana.rest import ApiException
 from pprint import pprint
 from get_initial_sync import fetch_init, fetch_latest
 import time
 from update_tasks import update_task
+from get_task_name import task_name
 import os
-
 from dotenv import load_dotenv
+
 load_dotenv()
 ACCESS_TOKEN = os.getenv("ASANA_PAT")
 #print(ACCESS_TOKEN)
 
 try:
-    # Get events on a resource
+    # Get initial sync id
     init_sync = fetch_init()
-
-    cur_task_gid = 0
+    cur_task_gid = None
+    final_task_name = ""
+    parent_name = ""
+    # polling every 10 seconds
     while True:
         time.sleep(10)
         init_sync, data = fetch_latest(init_sync)
         pprint(data)
         for event in data:
+            # if new task is add, then remember the task id and parent project
             if event['action'] == 'added' and event['parent']['resource_type'] == 'project' and event['resource']['name'] != "":
                 print(event['parent']['name'], event['resource']['name'])
-                newtask_name = event['parent']['name'] + " - " + event['resource']['name']
+                # final_task_name = event['resource']['name']
                 cur_task_gid = event['resource']['gid']
-                update_task(newtask_name, event['resource']['gid'])
-            elif event['action'] == 'changed' and event['resource']['resource_type'] == 'task':
-                update_task(event['resource']['name'], cur_task_gid)
+                parent_name = event['parent']['name']
+                # update task name when task id changes 
+            elif event['resource']['gid'] != cur_task_gid:
+                print("Task name: ", task_name(cur_task_gid))
+                newtask_name = parent_name + " - " + task_name(cur_task_gid)
+                update_task(newtask_name, cur_task_gid)
+                break
 
 except ApiException as e:
     print("Exception when calling EventsApi->get_events: %s\n" % e)

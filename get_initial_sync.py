@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 ACCESS_TOKEN = os.getenv("ASANA_PAT")
 
+#initial sync id
 def fetch_init():
     RESOURCE_GID = "1211436899216107"  # your project or task GID
 
@@ -22,6 +23,7 @@ def fetch_init():
 
     return (data.get("sync"))
 
+#later sync id
 def fetch_latest(sync_token=None):
     RESOURCE_GID = "1211436899216107"  # your project or task GID
 
