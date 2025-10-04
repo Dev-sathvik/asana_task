@@ -30,11 +30,13 @@ try:
                 # final_task_name = event['resource']['name']
                 cur_task_gid = event['resource']['gid']
                 parent_name = event['parent']['name']
-                # update task name when task id changes 
-            elif event['resource']['gid'] != cur_task_gid:
-                print("Task name: ", task_name(cur_task_gid))
-                newtask_name = parent_name + " - " + task_name(cur_task_gid)
-                update_task(newtask_name, cur_task_gid)
+                # update task name when task name changes 
+            elif event['action'] != 'deleted' and event['resource']['gid'] == cur_task_gid:
+                cur_name = task_name(cur_task_gid)
+                if not cur_name.startswith(parent_name):
+                    print("Task name: ", cur_name)
+                    newtask_name = parent_name + " - " + cur_name
+                    update_task(newtask_name, cur_task_gid)
                 break
 
 except ApiException as e:

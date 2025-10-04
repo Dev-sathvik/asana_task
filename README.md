@@ -14,7 +14,7 @@
 3. Create and activate a virtual environment by running this in powershell.  
    ```python -m venv venv```  
    ```.\venv\Scripts\Activate.ps1```  
-4. Install all the required packages  
+4. Install all the required packages or dependencies  
     ```pip install -r requirements.txt```   
 5. Create a virtual environment(.env) file in top level of directory and paste the PAT in the given form.  
     ```ASANA_PAT=<YOUR_TOKEN>```  
@@ -40,8 +40,8 @@
 
 ### Limitations, known issuses
 - The system depends on how often we poll the API of asana, a large time gap improves the effectiveness of this service but takes longer to time to get updated. 
-- If the time gap is very less, the task name may not have not get updated correctly.
-- Sometimes updation may not happen correctly because only the partial change is captured because of the given time frame(10 seconds).
+- If the time gap is very less, the api call will be very agressive but better performance.
+
 
 ### Next steps
 - Make this service work for all of the projects.
